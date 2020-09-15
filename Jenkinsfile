@@ -3,9 +3,7 @@ pipeline {
     stages {
         stage('Upload to AWS') {
             steps {
-                pwd(); 
-                withAWS(region:'us-west-2',credentials:'aws-static') {
-                    // def identity=awsIdentity();
+                withAWS(credentials: 'aws-static', region: 'us-west-2') {
                     s3Upload(bucket:"jenkins-static-pipeline-udacity", file:'index.html', path:'/');
                 }
             }

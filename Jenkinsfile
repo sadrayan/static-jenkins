@@ -3,7 +3,6 @@ pipeline {
     stages {
         stage ('Lint HTML') {
             steps {
-                // install required gems
                 sh 'tidy -q -e *.html'
             }
         }
